@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from rotas import endereco_rota
+from routes import address_route
 
 router = APIRouter()
 
-router.include_router(endereco_rota.router)
+router.include_router(address_route.router)
