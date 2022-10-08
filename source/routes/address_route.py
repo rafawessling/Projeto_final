@@ -1,13 +1,12 @@
 from fastapi import APIRouter
-from typing import Optional
-from fastapi import Query
 from schemas.address_schema import Address
 from controllers import address_controler
+from bson.objectid import ObjectId
 
-#APIRouter creates path operations for item module
+
 router = APIRouter(
-    prefix="/endereco",
-    tags=["endereco"],
+    prefix="/address",
+    tags=["address"],
     responses={404: {"description": "Not found"}},
 )
 
@@ -15,10 +14,18 @@ router = APIRouter(
 async def read_root():
     return "funcionou amigo!"
 
-@router.post("/cadastro")
-async def create_address(endereco:Address):
-    return address_controler.create_address(endereco)
+@router.post("/")
+async def create_address(address:Address):
+    return await address_controler.create_address(address)
 
-@router.get("/")
-async def get_address():
-    return "funcionou amigo!"
+@router.get("/{id}/")
+async def get_address(id:str):
+    return await address_controler.get_address(ObjectId(id))
+
+@router.get("/get_all_addresses")
+async def get_all_addresses():
+    return await address_controler.get_all_addresses()
+
+@router.delete("/delete_address")
+async def delete_address(id:str):
+    return await address_controler.delete_address(ObjectId(id))
