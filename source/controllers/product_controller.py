@@ -14,7 +14,7 @@ async def create_product(product: ProductSchema):
 
         # Se nenhum produto com o código informado for encontrado, ele é cadastrado
         if 'status' in existing_product.keys():
-            add_product = db.product_db.insert_one(product.dict())
+            add_product = db.product_collection.insert_one(product.dict())
             
             # Verifica se o produto foi inserido corretamente
             if add_product.inserted_id:
@@ -36,7 +36,7 @@ async def get_product_by_name(name):
             }
         }
         # Verifica se algum produto possui o termo pesquisado no campo "name"
-        products = list(db.product_db.find(query))
+        products = list(db.product_collection.find(query))
         if products:
             return json.loads(json_util.dumps(products))
         
@@ -48,7 +48,7 @@ async def get_product_by_name(name):
 async def get_product_by_code(code):
     try:
         # Verifica se existe produto com o código pesquisado
-        product = db.product_db.find_one({'code': code})
+        product = db.product_collection.find_one({'code': code})
         if product:
             return json.loads(json_util.dumps(product))
         
@@ -64,7 +64,7 @@ async def delete_product_by_code(code):
  
         # Verifica se o existe, e então deleta produto
         if 'status' not in existing_product.keys():
-            delete_product = db.product_db.delete_one({"_id": ObjectId(existing_product["_id"]["$oid"])})
+            delete_product = db.product_collection.delete_one({"_id": ObjectId(existing_product["_id"]["$oid"])})
             
             # Verifica se o produto foi deletado corretamente
             if delete_product.deleted_count:
@@ -83,7 +83,7 @@ async def update_product_by_code(code, product: ProductUpdateSchema):
         # Caso o produto exista, atualiza os dados informados (se forem diferentes dos existentes)
         if existing_product:
             product = {k: v for k, v in product if v is not None}
-            update_product = db.product_db.update_one(
+            update_product = db.product_collection.update_one(
                 {'code': code},
                 {'$set': product}
             )

@@ -37,13 +37,12 @@ load_dotenv()
 
 class Database():
     def __init__(self):
-        print(f"Conectando database: {environ.get('DATABASE_URI')}")
         self.client = MongoClient(environ.get('DATABASE_URI'))
         self.db = self.client['shopping_cart']
-        self.users_db = self.db['users']
-        self.product_db = self.db['product']
-        self.address_db = self.db['address']
-        self.cart_db = self.db['cart']
-        self.order_items_db = self.db['order_items']
+        self.users_collection = self.db['users']
+        self.product_collection = self.db['product']
+        self.address_collection = self.db['address']
+        self.cart_collection = self.db['cart']
+        self.order_items_collection = self.db['order_items']
 
 db = Database()
