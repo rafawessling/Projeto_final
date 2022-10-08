@@ -1,5 +1,7 @@
 FROM python:3.10.5-slim
 
+ENV DATABASE_URI=$DATABASE_URI
+
 WORKDIR /app
 
 COPY . .

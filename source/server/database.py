@@ -37,6 +37,7 @@ load_dotenv()
 
 class Database():
     def __init__(self):
+        print(f"Conectando database: {environ.get('DATABASE_URI')}")
         self.client = MongoClient(environ.get('DATABASE_URI'))
         self.db = self.client['shopping_cart']
         self.users_db = self.db['users']
