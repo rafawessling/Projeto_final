@@ -15,7 +15,4 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: 'shopping-cart-luizacode-final' #Must be unique in Heroku
           heroku_email: 'rafaoening@gmail.com'
-          dockerfile_directory: ./
-          dockerfile_name: Dockerfile
-          docker_options: '--no-cache'
-          process_type: web
+          usedocker: true
