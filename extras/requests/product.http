@@ -1,0 +1,74 @@
+ ----------- Product --------------
+###
+# Register new product
+POST http://127.0.0.1:8000/products/ HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Mop Perfect Pro Giratório 360 com 3 Refis Esfregão e Balde Cesto Inox",
+    "description": "Com uma concepção inovadora, baseada na teoria da centrifugação, apresenta um excelente poder de limpeza e 100% de centrifugação. Com um fantástico dispositivo de centrifugação você pode controlar o percentual de umidade do mop facilmente. Produzido em microfibra, o mop apresenta um grande poder de absorção de poeira ou água com secagem fácil, limpando de forma segura e eficiente. Seu elegante design faz com que gire 360 graus e permite chegar em qualquer canto onde antes não era possível.\nVantagens: centrifuga inox removível; rolha de vedação para facilitar o escoamento da agua; alça para carregamento mais resistente; eixo interno para facilitar a lavagem do refil; cabo com inclinação de 180°; cabo com sistema de trava on/off para regulagem de altura e função giratória; remove rapidamente o excesso de agua; material, mais resistente e durável dentre todos da categoria.\nDimensões:\nCabo: Altura max: 1,60m;\nBalde: Altura: 24 cm; Largura: 28 cm; Comprimento: 46 cm.",
+    "code": "123456",
+    "price": 169.89,
+    "image": "https://a-static.mlcdn.com.br/800x560/balde-mop-pro-esfregao-com-cesto-inox-cabo-160-metros-com-3-refis-1-microfibra-1-limpeza-po-1-limpeza-pesada-perfect/gahe/5916911504/e594d771b7140096b37d35479097d3e1.jpeg",
+    "stock": 5,
+    "brand": "MOP",
+    "color": "Azul",
+    "material": "Balde plástico com cesto inox, cabo inox e refis de microfibra."
+}
+
+###
+# Register new product
+POST http://127.0.0.1:8000/products/ HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Sabão Líquido Omo Lavagem Perfeita 5L",
+    "description": "Imbatível na limpeza e cuida do meio ambiente. 10x melhor no poder e no cuidado. Remove as manchas na primeira lavagem. Espuma de alta performance. Cuida das cores e dos tecidos. Perfume exclusivo que dura muito. OMO Lavagem Perfeita é 10x melhor no poder e cuidado com as suas roupas.\nA fórmula do lava roupas OMO Lavagem Perfeita não deixa resíduos, remove as manchas de primeira, brancura imbatível, higieniza suas roupas, elimina o mau odor e possui perfume exclusivo que dura muito mais, isso tudo cuidando das cores e dos tecidos das suas roupas, da sua máquina e do meio ambiente. Imbatível na limpeza e cuida do meio ambiente, pois sua fórmula contém ativo biodegradável e não possui fosfato, ajudando a preservar rios e oceanos, além de economizar água, uma vez que precisa de apenas 1 enxágue. Além disso, possui ativo concentrado, tecnologia que cuida do planeta. Menos CO2, menos poluição.\nÉ um produto sustentável e com rendimento eficiente pois necessita de apenas um enxágue e permite lavar uma máquina cheia com apenas uma tampa de sabão. Perfeito para manter suas roupas impecáveis e seu dia a dia super prático! Sua embalagem é 100% reciclável.\nFaça o descarte consciente. Quando você escolhe OMO, você escolhe um mundo melhor. Juntos, sOMOs a transformação positiva para o meio ambiente. Mantenha o produto fora do alcance de crianças e dos animais domésticos.\nLeia o rótulo antes de usar o produto.\nIndicação de uso: Lavagens de roupas brancas ou coloridas.",
+    "code": "987654",
+    "price": 55.90,
+    "image": "https://a-static.mlcdn.com.br/800x560/sabao-liquido-omo-lavagem-perfeita-5l/magazineluiza/220976400/430f116a9a926447075cd5bcdc4c7a51.jpg",
+    "stock": 15,
+    "brand": "Omo"
+}
+
+###
+# Register new product
+POST http://127.0.0.1:8000/products/ HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Vassoura Mágica Inteligente Condor Cabo Artículado",
+    "description": "Este mop varre e recolhe a sujeira sem esforço. Varriação rápida e sem necessidade de pá. Super prática, pode ser usada em pisos frios, madeira e sintéticos. A sujeira fica armazenada em um reservatório. Para descarte, basta abrir o compartimento direto em uma lixeira. O sistema 360o graus no seu cabo articulado alcança todos os cantos.\nAltura do cabo: 99 cm.\nCaracterísticas do produto:\n- Ideal para faxinas rápidas\n- Confortável\n- Ergonômica\n- Leve\n- Resistente\n- Leve e sem fio\n- Cabo em aço inox\n- Porta lixo acessível: Leve a sujeira diretamente para a lixeira\n- Chega bem próximo aos cantos.\n***ATENÇÃO***\nO produto não é elétrico. Ele funciona de forma semelhante a um aspirador, porém é manual.",
+    "code": "102030",
+    "price": 51.90,
+    "image": "https://a-static.mlcdn.com.br/800x560/vassoura-magica-inteligente-condor-cabo-articulado-gaby-presentes/gabypresenteseutilidade/vassoura-01pc/393e37c5ee93ce64fbfc9accfa122c05.jpeg",
+    "stock": 10,
+    "brand": "Condor",
+    "color": "Vermelho",
+    "material": "Cabo inox"
+}
+
+###
+# Search product by name
+GET http://127.0.0.1:8000/products/search?name=mop HTTP/1.1
+content-type: application/json
+
+###
+# Search product by code
+GET http://127.0.0.1:8000/products/123456 HTTP/1.1
+content-type: application/json
+
+###
+# Delete product by code
+DELETE http://127.0.0.1:8000/products/123456 HTTP/1.1
+content-type: application/json
+
+###
+# Update product by code
+PUT http://127.0.0.1:8000/products/123456 HTTP/1.1
+content-type: application/json
+
+{
+    "code": "123456",
+    "stock": 8
+}

@@ -1,61 +1,67 @@
 # Carrinho de compras
->*O intuito deste projeto é criar um carrinho de compras*
 
- 
-*******
+> _O intuito deste projeto é criar um sistema de carrinho de compras utilizando MongoDB, Python e FastAPI, trazendo informações de usuário, endereço e produtos.
+> Esta entrega contempla o CRUD (criação, pesquisas, remoção e atualização dos dados) para usuário, endereço, produto, carrinho de compras e pedido, bem como o tratamento de exceções, testes unitários, validações._
+
+---
+
 Índice
- 1. [Projeto](#statusprojeto)
- 2. [Tecnologias utilizadas](#tecnoutilizadas)
- 3. [Pessoas Contribuidoras e Desenvolvedoras do Projeto](#contribuidoras)
 
-*******
+1.  [Projeto](#statusprojeto)
+2.  [Tecnologias utilizadas](#tecnoutilizadas)
+3.  [Desenvolvedoras do Projeto](#contribuidoras)
 
+---
 
 <div id='statusprojeto'/>
 
 ## 1 - Projeto:
-Criando e ativando um ambiente virtual:
 
-``  python -m venv env ``
-``  . env/scripts/activate ``
+- Criando e ativando um ambiente virtual:
+  `$ python -m venv venv`
+  `$ source env/scripts/activate`
 
-Instalando o requirements
+- Instalando os requirements:
+  `$ pip install -r requirements.txt`
 
-``pip install -r requirements.txt``
+- Execução:
+  ` $ uvicorn main:app --reload`
 
-Run
+- Routes:
 
-`` uvicorn main:app --reload ``
-
-Routes
-
-``url:  ``
+  `url: http://localhost:8000/docs`
 
 <div id='tecnoutilizadas'/>
 
 ## 2 - Tecnologias utilizadas:
- * **GIT E GITHUB**
- * **FUNDAMENTOS DE PYTHON**
- * **CLASSES**
- * **FRAMEWORK FASTAPI**
- * **MongoDB**
- * **Heroku**
+
+- **Git e GitHub**
+- **Fundamentos de Python**
+- **Classes**
+- **Framework FastAPI**
+- **MongoDB**
+- **Heroku**
 
 <div id='contribuidoras'/>
 
 ## 3 - Pessoas Contribuidoras e Desenvolvedoras do Projeto:
 
-### **Nicole Maia**
+#### **Bruna Faleiros**
 
-* **[*Linkedin*] : https://www.linkedin.com/in/nicole-maia-bbb7aa17b/**
-* **[*GitHub*] : https://github.com/nickmaia**
+- **[*Linkedin*] : )**
+- **[*GitHub*] : https://github.com/brufis**
 
-### **Giulia Gabriella**
+#### **Giulia Gabriella**
 
-* **[*Linkedin*] : )**
-* **[*GitHub*] : https://github.com/giugabriella**
+- **[*Linkedin*] : )**
+- **[*GitHub*] : https://github.com/giugabriella**
 
-### **Rafaela Wessling Oening**
+#### **Nicole Maia**
 
-* **[*Linkedin*] : )**
-* **[*GitHub*] : https://github.com/rafawessling**
+- **[*Linkedin*] : https://www.linkedin.com/in/nicole-maia-bbb7aa17b/**
+- **[*GitHub*] : https://github.com/nickmaia**
+
+#### **Rafaela Wessling Oening**
+
+- **[*Linkedin*] : https://www.linkedin.com/in/rafaela-wessling/**
+- **[*GitHub*] : https://github.com/rafawessling**
