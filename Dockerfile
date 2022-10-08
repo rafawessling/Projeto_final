@@ -2,6 +2,8 @@ FROM python:3.10.5-slim
 
 ENV DATABASE_URI=$DATABASE_URI
 
+EXPOSE 27017
+
 WORKDIR /app
 
 COPY . .
