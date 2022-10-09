@@ -1,0 +1,4 @@
+CREATE_USER = ""
+GET_USER_NAME = ""
+GET_USER_CODE = ""
+DELETE_USER = ""
