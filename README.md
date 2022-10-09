@@ -48,7 +48,7 @@
 
 #### **Bruna Faleiros**
 
-- **[*Linkedin*] : )**
+- **[*Linkedin*] : https://www.linkedin.com/in/bruna-faleiros-48a19573/**
 - **[*GitHub*] : https://github.com/brufis**
 
 #### **Giulia Gabriella**
