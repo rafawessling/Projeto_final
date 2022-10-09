@@ -1,10 +1,7 @@
 import re
 from fastapi.exceptions import HTTPException
 from source.schemas.user_schema import UserSchema
-import logging
 from source.server.database import db
-
-logger = logging.getLogger(__name__)
 
 async def create_user(email: UserSchema):
     if UserSchema.email == email:
