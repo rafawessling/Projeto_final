@@ -1,3 +1,5 @@
+from bson import ObjectId
+import pydantic
 from fastapi import FastAPI
 from pydantic import BaseModel
 from api_router import router
@@ -6,6 +8,7 @@ import uvicorn
 from dotenv import load_dotenv
 from pathlib import Path
 
+pydantic.json.ENCODERS_BY_TYPE[ObjectId]=str
 app = FastAPI()
 
 app.include_router(router)

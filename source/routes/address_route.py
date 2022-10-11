@@ -22,10 +22,14 @@ async def create_address(address:Address):
 async def get_address(id:str):
     return await address_controler.get_address(ObjectId(id))
 
-@router.get("/get_all_addresses")
-async def get_all_addresses():
-    return await address_controler.get_all_addresses()
+@router.get("/get_all_addresses/{id}/")
+async def get_all_addresses(id:str):
+    return await address_controler.get_all_addresses(ObjectId(id))
 
-@router.delete("/delete_address")
+@router.delete("/delete_address/")
 async def delete_address(id:str):
     return await address_controler.delete_address(ObjectId(id))
+
+@router.delete("/delete_all_address/")
+async def delete_address(id:str):
+    return await address_controler.delete_all_address(ObjectId(id))
