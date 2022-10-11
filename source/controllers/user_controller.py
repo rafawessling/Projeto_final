@@ -1,9 +1,10 @@
 
 from server.database import DataBase
 from schemas.user_schema import User
-from controllers.address_controler import create_address
 
 async def create_user(user):
+    '''`função`: criar usuário\n`user`: dados do usuário
+    \n\nreturn: usuário convertido a `dict`'''
     try:
         db = DataBase()
         await db.connect_db()
@@ -13,6 +14,8 @@ async def create_user(user):
         print(f'create_user.error: {repr(e)}')
         
 async def get_user(id):
+    '''`função`: buscar usuário no banco de dados\n`id`: id do usuário
+    \n\nreturn: dados do usuário'''
     try:
         db = DataBase()
         await db.connect_db()
@@ -25,6 +28,7 @@ async def get_user(id):
         print(f'get_user.error: {e}')
 
 async def get_users():
+    '''`função`: buscar usuários\n\nreturn: `lista` de usuários com dados convertidos a dicionarios'''
     try:
         db = DataBase()
         await db.connect_db()
@@ -37,6 +41,8 @@ async def get_users():
         print(f'get_users.error: {e}')
         
 async def get_user_by_email(email):
+    '''`função`: buscar usuário pelo email\n`email`: email do usuário
+    \n\nreturn: usuáro vínculado ao email'''
     db = DataBase()
     await db.connect_db()
     user = await db.users_collection.find_one({'email': email})
@@ -46,10 +52,9 @@ async def get_user_by_email(email):
         return {'result': f'Usuario com email {email} nao foi encontrado!'}
 
 async def update_user(user_id, user_data):
-    '''`user_id`: Id do usuario\n`user_data:` Lista de Tuplas List[(x,y)]
-    \n\nReturns: `dict`'''
-    try:
-        
+    '''`função`: atualizar dados do usuário\n`user_id`: Id do usuario\n`user_data`: dados do usuário 
+    \n\nReturns: `dict` com dados atualizados'''
+    try: 
         db = DataBase()
         await db.connect_db()
         
@@ -60,11 +65,12 @@ async def update_user(user_id, user_data):
         if user.modified_count:
             return {'result' : True, 'modified_count' : user.modified_count}
         return {'result' : False, 'modified_count' : 0}
-    
     except Exception as e:
         print(f'update_user.error: {e}')
         
 async def delete_user(user_id):
+    '''`função`: deletar usuário\n`user_id`: id do usuário
+    \n\nreturn: mensagem de delete confirmado'''
     try:
         db = DataBase()
         await db.connect_db()
@@ -75,3 +81,6 @@ async def delete_user(user_id):
             return {'status': 'Nothing to delete'}
     except Exception as e:
         print(f'delete_user.error: {e}')
+    
+
+    
