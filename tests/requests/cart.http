@@ -1,0 +1,26 @@
+ ----------- Cart --------------
+###
+# Register new cart to user
+POST http://127.0.0.1:8000/cart/ HTTP/1.1
+content-type: application/json
+
+{
+    "user_id": "123456",
+    "order_items": [
+        {
+            "product_code": "987654",
+            "quantity": 5
+        }
+    ],
+    "total_price": 150.75
+}
+
+###
+# Get cart by user
+GET http://127.0.0.1:8000/cart/123456 HTTP/1.1
+content-type: application/json
+
+###
+# Delete cart by user
+DELETE http://127.0.0.1:8000/cart/123456 HTTP/1.1
+content-type: application/json

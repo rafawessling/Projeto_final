@@ -8,6 +8,15 @@ from source.server.database import db
 logger = logging.getLogger(__name__)
 
 async def create_product(product: ProductSchema):
+    """ Método responsável por cadastrar um produto na base de dados
+
+    Args:
+        product (ProductSchema)
+    Raises:
+        HTTPException: status_code=422
+    Returns:
+        type: dict("status": status, "product": product)
+    """
     try:
         # Verifica se o código já existe
         existing_product = await get_product_by_code(product.code)
@@ -28,6 +37,18 @@ async def create_product(product: ProductSchema):
         raise HTTPException(status_code=422)
 
 async def get_product_by_name(name):
+    """ Obtêm um produto baseado em name como chave de busca
+
+    Args:
+        name: str
+    Raises:
+        HTTPException: status_code=400
+    Returns:
+        type: dict("status": status, "product": product)
+        obs: product somente é retornado se o elemento for encontrado,
+             caso contrário, apenas o status informando a ausência será
+             retornado
+    """
     try:
         query = {
             "name": {
@@ -46,6 +67,15 @@ async def get_product_by_name(name):
         raise HTTPException(status_code=400)
     
 async def get_product_by_code(code):
+    """ Obtêm um produto baseado no `code` como chave de busca
+
+    Args:
+        code: int
+    Raises:
+        HTTPException: status_code=400
+    Returns:
+        type: dict("status": status, "product": product)
+    """
     try:
         # Verifica se existe produto com o código pesquisado
         product = db.product_collection.find_one({'code': code})
@@ -58,11 +88,20 @@ async def get_product_by_code(code):
         raise HTTPException(status_code=400)
 
 async def delete_product_by_code(code):
+    """ Deleta um produto baseado no parâmetro `code` como chave de busca
+
+        Args:
+            code: int
+        Raises:
+            HTTPException: status_code=400
+        Returns:
+            type: dict("status": status, "product": product)
+    """
     try:
         # Verifica se o código já existe
         existing_product = await get_product_by_code(code)
  
-        # Verifica se o existe, e então deleta produto
+        # Verifica se existe, e então deleta produto
         if 'status' not in existing_product.keys():
             delete_product = db.product_collection.delete_one({"_id": ObjectId(existing_product["_id"]["$oid"])})
             
@@ -76,6 +115,16 @@ async def delete_product_by_code(code):
         raise HTTPException(status_code=400)
 
 async def update_product_by_code(code, product: ProductUpdateSchema):
+    """ Atualiza os dados de um produto informado via parametro `product`
+
+        Args:
+            code: int
+            product (ProductSchema)
+        Raises:
+            HTTPException: status_code=400
+        Returns:
+            type: dict("status": status, "product": product)
+    """
     try:
         # Verifica se o código já existe
         existing_product = await get_product_by_code(code)
