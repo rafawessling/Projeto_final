@@ -15,32 +15,32 @@ def test_add_product_to_chart():
                 "material": "Balde plástico com cesto inox, cabo inox e refis de microfibra."
             }
     
-    # se existir um carrinho retorna Ok
+    # se existir um cart retorna Ok
     response = client.post("/products/", json=product)
     assert response.json() == "OK"
     
-    # se não existir um carrinho vinculado ao usuário, crie o carrinho e retornar OK
+    # se não existir um cart vinculado ao usuário, crie o cart e retornar OK
     user = {"id": 1, "name": "fulano", "email": "aaaa@bbbbb.com", "password": "12"}
     response = client.post("/user", json=user)
     assert response.json() == "OK"
     
     #Se não retorna falha / id_cart = 598652
-    response = client.post("/carrinho/1/598652/")
+    response = client.post("/cart/1/598652/")
     assert response.json().upper() == "FALHA"
     
-    #Se não retorna falha se não houver este produto no carrinho
-    response = client.post("/carrinho/598652/123456/")
+    #Se não retorna falha se não houver este produto no cart
+    response = client.post("/cart/598652/123456/")
     assert response.json().upper() == "FALHA"
     
-    # senão adiciona produto ao carrinho e retornar OK; id_user = 1 e id_produto = 123456
-    response = client.post("/carrinho/1/123456/")
+    # senão adiciona produto ao cart e retornar OK; id_user = 1 e id_produto = 123456
+    response = client.post("/cart/1/123456/")
     assert response.json().upper() == "OK"
 
 
 def test_get_chart_by_user_id():
     
-    #Verificando se exite um carrinho
-    response = client.get("/carrinho/659856846/")
+    #Verificando se exite um cart
+    response = client.get("/cart/659856846/")
     assert response.json().upper() == "FALHA"
     
     #Adicionando products 
@@ -84,16 +84,16 @@ def test_get_chart_by_user_id():
     client.post("/products/", json=product2)
     client.post("/products/", json=product3)
 
-    #Vinculando user ao produto dentro do carrinho
+    #Vinculando user ao produto dentro do cart
     user = {"id": 2, "name": "fulano", "email": "aaaa@bbbbb.com", "password": "12"}
     client.post("/user", json=user)
 
-    client.post("/carrinho/2/200/")
-    client.post("/carrinho/2/201/")
-    client.post("/carrinho/2/202/")
+    client.post("/cart/2/200/")
+    client.post("/cart/2/201/")
+    client.post("/cart/2/202/")
 
-    #Teste componentes do carrinho
-    response = client.get("/carrinho/2/")
+    #Teste componentes do cart
+    response = client.get("/cart/2/")
     assert "total_price" in response.json()
     assert "id_products/code" in response.json()
     assert "id_user" in response.json()
@@ -103,16 +103,16 @@ def test_get_chart_by_user_id():
     assert len(response.json()['id_products/code']) == 200
 
 
-#Deletando carrinho
-def test_delete_carrinho():
+#Deletando cart
+def test_delete_cart():
     # Se não existir usuário com o id_user retornar falha
-    response = client.delete("/carrinho/1987635132/")
+    response = client.delete("/cart/1987635132/")
     assert response.json().upper() == "FALHA"
     
     #Se existir deletar e retornar OK
-    response = client.delete("/carrinho/2/")
+    response = client.delete("/cart/2/")
     assert response.json().upper() == "OK"
     
     #Se não retorna FALHA
-    response = client.delete("/carrinho/2/")
+    response = client.delete("/cart/2/")
     assert response.json().upper() == "FALHA"
