@@ -1,7 +1,9 @@
-
+import logging
 from test_route_main import client
 
-def test_add_product_to_chart():
+logging.basicConfig(level=logging.INFO, filename= "route_tests.log")
+
+def test_add_product_to_cart():
     product =  {
         
                 "name": "Mop Perfect Pro Giratório 360 com 3 Refis Esfregão e Balde Cesto Inox",

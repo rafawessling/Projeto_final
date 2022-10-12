@@ -1,4 +1,7 @@
+import logging
 from test_route_main import client
+
+logging.basicConfig(level=logging.INFO, filename= "route_tests.log")
 
 # Teste para criar um usuario e se há outro usuario com o mesmo ID retorna falha
 def test_create_user_same_id():

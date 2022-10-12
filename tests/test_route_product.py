@@ -1,4 +1,7 @@
 from test_route_main import client
+import logging
+
+logging.basicConfig(level=logging.INFO, filename= "route_tests.log")
 
 def test_create_product():
     product =  {

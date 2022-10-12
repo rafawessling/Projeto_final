@@ -1,4 +1,7 @@
-from test_route_main import client
+from test_route_main import client, TestClient
+import logging 
+
+logging.basicConfig(level=logging.INFO, filename= "route_tests.log")
 
 # Teste para validar id do endereço 
 def test_doesnt_create_address_by_invalid_id():
@@ -27,8 +30,6 @@ def test_create_address_by_id():
             }
     response = client.post("/address/1/", json=data)
     assert response.json().upper() == "OK"
-    
-    
     
 # Se não existir usuário com o id_usuario retornar falha
 def test_doesnt_get_address_by_invalid_id():
