@@ -7,8 +7,8 @@ from extras.description_swagger.description_product import (
     DELETE_PRODUCT,
     UPDATE_PRODUCT
 )
-from source.schemas.product_schema import ProductSchema, ProductUpdateSchema
-from source.controllers.product_controller import (
+from schemas.product_schema import ProductSchema, ProductUpdateSchema
+from controllers.product_controller import (
     create_product,
     get_product_by_name,
     get_product_by_code,

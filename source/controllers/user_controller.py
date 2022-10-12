@@ -1,14 +1,14 @@
 
-from server.database import DataBase
+from server.database import Database
 from schemas.user_schema import User
 
 async def create_user(user):
     '''`função`: criar usuário\n`user`: dados do usuário
     \n\nreturn: usuário convertido a `dict`'''
     try:
-        db = DataBase()
-        await db.connect_db()
-        user_awaited = await db.users_collection.insert_one(user.dict())
+        db = Database()
+        
+        user_awaited = db.users_collection.insert_one(user.dict())
         return User.parse_obj(await get_user(user_awaited.inserted_id))
     except Exception as e:
         print(f'create_user.error: {repr(e)}')
@@ -17,9 +17,9 @@ async def get_user(id):
     '''`função`: buscar usuário no banco de dados\n`id`: id do usuário
     \n\nreturn: dados do usuário'''
     try:
-        db = DataBase()
-        await db.connect_db()
-        data = await db.users_collection.find_one({"_id": id})
+        db = Database()
+        
+        data =  db.users_collection.find_one({"_id": id})
         if data:
             return User.parse_obj(data)
         else:
@@ -30,11 +30,10 @@ async def get_user(id):
 async def get_users():
     '''`função`: buscar usuários\n\nreturn: `lista` de usuários com dados convertidos a dicionarios'''
     try:
-        db = DataBase()
-        await db.connect_db()
+        db = Database()
+        
         user_cursor = db.users_collection.find()
-        user_count = await db.users_collection.count_documents(filter={})
-        users = await user_cursor.to_list(length=user_count)
+        users = list(user_cursor)
         lista = [User.parse_obj(u) for u in users]
         return lista
     except Exception as e:
@@ -43,9 +42,9 @@ async def get_users():
 async def get_user_by_email(email):
     '''`função`: buscar usuário pelo email\n`email`: email do usuário
     \n\nreturn: usuáro vínculado ao email'''
-    db = DataBase()
-    await db.connect_db()
-    user = await db.users_collection.find_one({'email': email})
+    db = Database()
+    
+    user = db.users_collection.find_one({'email': email})
     if user:
         return User.parse_obj(user)
     else:
@@ -55,13 +54,13 @@ async def update_user(user_id, user_data):
     '''`função`: atualizar dados do usuário\n`user_id`: Id do usuario\n`user_data`: dados do usuário 
     \n\nReturns: `dict` com dados atualizados'''
     try: 
-        db = DataBase()
-        await db.connect_db()
+        db = Database()
+        
         
         filtro = {"_id":user_id}
         new_values = { "$set": user_data.dict() }
         
-        user = await db.users_collection.update_one(filtro, new_values)
+        user = db.users_collection.update_one(filtro, new_values)
         if user.modified_count:
             return {'result' : True, 'modified_count' : user.modified_count}
         return {'result' : False, 'modified_count' : 0}
@@ -72,9 +71,9 @@ async def delete_user(user_id):
     '''`função`: deletar usuário\n`user_id`: id do usuário
     \n\nreturn: mensagem de delete confirmado'''
     try:
-        db = DataBase()
-        await db.connect_db()
-        user = await db.users_collection.delete_one({'_id': user_id})
+        db = Database()
+        
+        user = db.users_collection.delete_one({'_id': user_id})
         if user.deleted_count > 0:
             return {'status': 'User deleted'}
         else:

@@ -2,8 +2,8 @@ from fastapi.exceptions import HTTPException
 from bson import ObjectId, json_util
 import json
 import logging
-from source.schemas.product_schema import ProductSchema, ProductUpdateSchema
-from source.server.database import db
+from schemas.product_schema import ProductSchema, ProductUpdateSchema
+from server.database import db
 
 logger = logging.getLogger(__name__)
 

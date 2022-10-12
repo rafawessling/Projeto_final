@@ -5,8 +5,8 @@ from extras.description_swagger.description_cart import (
     GET_CART_BY_USER_ID,
     DELETE_CART
 )
-from source.schemas.cart_schema import CartSchema
-from source.controllers.cart_controller import (
+from schemas.cart_schema import CartSchema
+from controllers.cart_controller import (
     create_cart,
     delete_cart_user,
     get_cart_by_user

@@ -2,9 +2,9 @@ from fastapi.exceptions import HTTPException
 from bson import json_util
 import json
 import logging
-from source.controllers.product_controller import get_product_by_code
-from source.schemas.cart_schema import CartSchema
-from source.server.database import db
+from controllers.product_controller import get_product_by_code
+from schemas.cart_schema import CartSchema
+from server.database import db
 
 logger = logging.getLogger(__name__)
 

@@ -2,7 +2,7 @@
 # from os import environ
 # from motor.motor_asyncio import AsyncIOMotorClient
 
-# class DataBase:
+# class Database:
 #     client: AsyncIOMotorClient = None
 #     database_uri = environ.get("DATABASE_URI_TEST")
 #     users_collection = None
@@ -11,7 +11,7 @@
 #     cart_collection = None
 #     order_items_collection = None
     
-# db = DataBase()
+# db = Database()
 
 # async def connect_db():
 #     db.client = AsyncIOMotorClient(
