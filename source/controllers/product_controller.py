@@ -39,12 +39,12 @@ async def create_product(product: ProductSchema):
 async def get_product_by_name(name):
     """ Obtêm um produto baseado em name como chave de busca
 
-    Args:
+    `Args`:
         name: str
-    Raises:
+    `Raises`:
         HTTPException: status_code=400
-    Returns:
-        type: dict("status": status, "product": product)
+    `Returns`:
+        `type`: dict("status": status, "product": product)
         obs: product somente é retornado se o elemento for encontrado,
              caso contrário, apenas o status informando a ausência será
              retornado

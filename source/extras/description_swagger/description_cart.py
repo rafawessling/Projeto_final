@@ -25,6 +25,33 @@ GET_CART_BY_USER_ID = """
 Caso não exista carrinho para esse usuário, retornará None.
 """
 
+ADD_PRODUCT = """
+**Adicionar produto ao carrinho**
+\nRequisitos:
+
+- `order_item`: deve conter o código do produto, a quantidade e o id do carrinho.
+
+*Código HTTP 200 OK: aplicação funcionou corretamente.*
+"""
+
+GET_ALL_PRODUCTS = """
+**Pesquisar produtos pelo id do carrinho**
+\nRequisitos:
+
+- `cartId`: Deve conter o id do carrinho.
+
+*Código HTTP 200 OK: aplicação funcionou corretamente.*
+"""
+
+REMOVE_PRODUCT = """
+**Remove produto do carrinho e apaga order_item.**
+\nRequisitos:
+
+- `order_item`: deve conter o código do produto, a quantidade e o id do carrinho.
+
+*Código HTTP 200 OK: aplicação funcionou corretamente.*
+"""
+
 DELETE_CART = """
 **Excluir o carrinho do usuário**
 \nRequisitos:

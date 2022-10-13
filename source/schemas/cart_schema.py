@@ -1,12 +1,7 @@
-import datetime
-from typing import List, Optional
-from pydantic import BaseModel, Field
-from schemas.order_items_schema import OrderItemsSchema
 
-from schemas.product_schema import ProductSchema
+from pydantic import BaseModel
 
 class CartSchema(BaseModel):
-    user_id: str
-    order_items: List[OrderItemsSchema] = []
+    user_id: object 
     total_price: float
     
