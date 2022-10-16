@@ -1,11 +1,9 @@
-from source.server.database import DataBase
-from schemas.address_schema import Address
-
+import logging
 from bson import ObjectId
+from fastapi.exceptions import HTTPException
 from server.database import Database
 from schemas.address_schema import Address
-import logging
-from fastapi.exceptions import HTTPException
+
 
 logger = logging.getLogger(__name__)
 
