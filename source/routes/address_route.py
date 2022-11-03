@@ -13,7 +13,7 @@ from extras.description_swagger.description_address import (
 
 router = APIRouter(
     prefix="/address",
-    tags=["address"],
+    tags=["Address"],
     responses={404: {"description": "Not found"}},
 )
 

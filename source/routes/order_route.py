@@ -10,7 +10,7 @@ from extras.description_swagger.description_order import (
 
 router = APIRouter(
     prefix="/order",
-    tags=["order"],
+    tags=["Order"],
     responses={404: {"description": "Not found"}},
 )
 

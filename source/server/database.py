@@ -6,7 +6,7 @@ load_dotenv()
 
 class Database():
     def __init__(self):
-        self.client = MongoClient(environ.get('DATABASE_URI_TESTE'))
+        self.client = MongoClient(environ.get('DATABASE_URI'))
         self.db = self.client['shopping_cart']
         self.users_collection = self.db['users']
         self.product_collection = self.db['product']

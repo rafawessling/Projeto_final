@@ -14,7 +14,7 @@ from extras.description_swagger.description_user import (
 
 router = APIRouter(
     prefix="/user",
-    tags=["user"],
+    tags=["User"],
     responses={404: {"description": "Not found"}},
 )
 
