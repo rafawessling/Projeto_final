@@ -1,6 +1,6 @@
 # Carrinho de compras - Limpeza
 
-<p align="center"><a href = "#"><img src = "imageLuizaCode.png" height=450 /></a></p>
+<p align="center"><a href = "#"><img src = "imageLuizaCode.png" height=250 /></a></p>
 
 > O objetivo deste projeto foi criar um sistema de **carrinho de compras** e **pedidos** utilizando _Python, FastAPI e MongoDB_, trazendo informações de usuário, endereço e produtos, com foco na categoria de **Limpeza**.
 
