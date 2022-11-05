@@ -1,17 +1,19 @@
 # Carrinho de compras - Limpeza
 
+<p align="center"><a href = "#"><img src = "imageLuizaCode.png" height=450 /></a></p>
+
 > O objetivo deste projeto foi criar um sistema de **carrinho de compras** e **pedidos** utilizando _Python, FastAPI e MongoDB_, trazendo informações de usuário, endereço e produtos, com foco na categoria de **Limpeza**.
 
-> Esta entrega engloba o **CRUD** _(criação, leitura, atualização e remoção dos dados)_ para usuário, endereço, produto, carrinho de compras e pedido, bem como o _tratamento de exceções, validações e testes unitários_. O projeto também contempla a hospedagem e disponibilização da aplicação pelo _Heroku_ e documentação utilizando o _Swagger_.
+> Esta entrega engloba o **CRUD** _(criação, leitura, atualização e remoção dos dados)_ para usuário, endereço, produto, carrinho de compras e pedido, bem como o _tratamento de exceções, validações e testes unitários_. O projeto também contempla a hospedagem e disponibilização da aplicação pelo _Render_ e documentação utilizando o _Swagger_.
 
-- A aplicação está disponível no link abaixo:
-  - https://shopping-cart-luizacode-final.herokuapp.com/docs#/
+- A aplicação está disponível no _link_ abaixo:
+  - https://shoppingcart-cleaning.onrender.com/docs#/
 
 ---
 
 **Índice**
 
-1.  [Projeto](#statusprojeto)
+1.  [Instalação](#instalacao)
 2.  [Tecnologias utilizadas](#tecnoutilizadas)
 3.  [Bibliotecas utilizadas](#bibliotecasutilizadas)
 4.  [Desenvolvimento do projeto](#desenvolvimentoprojeto)
@@ -19,26 +21,72 @@
 
 ---
 
-<div id='statusprojeto'/>
+<div id='instalacao'/>
 
-## 1. Projeto:
+## 1. Instalação:
 
-- Criando e ativando um ambiente virtual:
-  `$ python -m venv venv`
-  `$ source venv/scripts/activate`
+- Criar e ativar o ambiente virtual:
 
-- Instalando os requirements:
-  `$ pip install -r requirements.txt`
+  ```
+  $ python3 -m venv venv
+  ```
 
-- Executando a aplicação:
-  ` $ uvicorn source.main:app --reload`
+  Linux:
+
+  ```
+  $ source venv/scripts/activate
+  ```
+
+  Windows:
+
+  ```
+  $ .\venv\Scripts\activate
+  ```
+
+  <p></p>
+
+- Instalar os requirements:
+
+  ```
+  $ pip install -r requirements.txt
+  ```
+
+  <p></p>
+
+- Criar arquivo que contenha as variáveis de ambiente:
+
+  ```
+  $ touch .env
+  ```
+
+  No arquivo `.env`, adicionar a seguinte variável:
+
+  ```
+  DATABASE_URI = "link para conexão com o bando de dados"
+  ```
+
+  <p></p>
+
+- Executar a aplicação:
+
+  ```
+  $ uvicorn source.main:app --reload
+  ```
+
+  <p></p>
 
 - Routes:
 
-  `url: http://localhost:8000/docs`
+  ```
+  url: http://localhost:8000/docs
+  ```
 
-- _Link_ para consultar a aplicação hospedada pelo _Heroku_:
-  `url: https://shopping-cart-luizacode-final.herokuapp.com/docs#/`
+  <p></p>
+
+- _Link_ para consultar a aplicação hospedada pelo _Render_:
+  ```
+  url: https://shoppingcart-cleaning.onrender.com/docs#/
+  ```
 
 <div id='tecnoutilizadas'/>
 
@@ -51,7 +99,7 @@ Na realização deste trabalho, foram utilizadas as seguintes tecnologias:
 - Framework FastAPI
 - MongoDB
 - Docker
-- Heroku
+- Render
 - Swagger
 
 <div id='bibliotecasutilizadas'/>
@@ -83,7 +131,7 @@ Para o desenvolvimento deste projeto, foram levados em consideração os seguint
 - Foi criado o _schema_ `order_items` para facilitar a criação do carrinho de compras e pedido, considerando que é o equivalente a cada linha de produtos diferentes no carrinho de compras ou pedido. Dessa forma, `order_items` informa o produto e a quantidade de itens daquele produto;
 - Para armazenamento de dados, foi utilizada a opção _MongoDB_ disponível pela _cloud_ Atlas;
 - Optou-se por aplicar a conteinerização neste projeto, em que a aplicação é executada dentro de um _Docker contêiner_;
-- Foi decidido utilizar uma estratégia simples de _Continuos Delivery_, utilizando o _Heroku_ para hospedar e disponibilizar a aplicação;
+- Foi decidido utilizar uma estratégia simples de _Continuos Delivery_, utilizando o _Render_ para hospedar e disponibilizar a aplicação;
 - Optou-se por documentar a API utilizando o _Swagger._
 
 <div id='desenvolvedoras'/>
@@ -97,7 +145,7 @@ Para o desenvolvimento deste projeto, foram levados em consideração os seguint
 
 #### **Giulia Gabriella**
 
-- **[*Linkedin*] : )**
+- **[*Linkedin*] : https://www.linkedin.com/in/giulia-gabriella-de-lima-santos/**
 - **[*GitHub*] : https://github.com/giugabriella**
 
 #### **Nicole Maia**
