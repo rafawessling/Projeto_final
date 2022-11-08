@@ -34,13 +34,13 @@
   Linux:
 
   ```
-  $ source venv/scripts/activate
+  $ source venv/bin/activate
   ```
 
   Windows:
 
   ```
-  $ .\venv\Scripts\activate
+  $ .\venv\scripts\activate
   ```
 
   <p></p>
@@ -62,7 +62,7 @@
   No arquivo `.env`, adicionar a seguinte variável:
 
   ```
-  DATABASE_URI = "link para conexão com o bando de dados"
+  DATABASE_URI = "link para conexão com o banco de dados"
   ```
 
   <p></p>
